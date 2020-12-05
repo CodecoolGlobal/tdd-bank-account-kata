@@ -4,8 +4,12 @@ import java.util.List;
 
 public class Account implements AccountService {
 
-    Transactions transactions = new Transactions();
-    private int balance = 0;
+    private final Transactions transactions;
+    private int balance;
+
+    public Account() {
+        this.transactions = new Transactions();
+    }
 
     @Override
     public void deposit(int amount) {

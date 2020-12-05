@@ -7,10 +7,14 @@ import java.util.List;
 
 public class Transactions {
 
-    private List<String> transactions = new ArrayList<>();
+    private List<Transaction> transactions;
+
+    public Transactions() {
+        this.transactions = new ArrayList<>();
+    }
 
     public void addTransaction(int amount, int balance) {
-        transactions.add(formatTransactionMessage(amount, balance));
+        transactions.add(new Transaction(amount, balance, new Date()));
     }
 
     private String formatTransactionMessage(int amount, int balance) {
@@ -22,7 +26,7 @@ public class Transactions {
         return format.format(new Date());
     }
 
-    public List<String> getTransactions() {
+    public List<Transaction> getTransactions() {
         return transactions;
     }
 }
